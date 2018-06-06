@@ -8,8 +8,7 @@
     <script>
         const input1 = "24/2+2=2*x-2";
         const input2 = "2+2*x=22-2";
-        const input3 = "2+4+6+4*x=8/2*4"
-        solveX(input3);
+        solveX(input1);
         function solveX(input){
             document.write("input: ", input);
             const inputArray = [];
@@ -31,12 +30,12 @@
                     newInputArray.push(inputArray[inputArrayIndex+1]);
                     inputArrayIndex++;
                 } else if(inputArray[inputArrayIndex] === '*' && inputArray[inputArrayIndex+1] !== 'x' ){
-                    let productNum = inputArray[inputArrayIndex-1] * inputArray[inputArrayIndex+1];
+                    let productNum = parseInt(inputArray[inputArrayIndex-1]) * parseInt(inputArray[inputArrayIndex+1]);
                     newInputArray.splice(inputArrayIndex-1, 1);
                     newInputArray.push(productNum);
                     inputArrayIndex++;
                 } else if(inputArray[inputArrayIndex] === '/' && inputArray[inputArrayIndex+1] !== 'x'){
-                    let divideNum = inputArray[inputArrayIndex-1] / inputArray[inputArrayIndex+1];
+                    let divideNum = parseInt(inputArray[inputArrayIndex-1]) / parseInt(inputArray[inputArrayIndex+1]);
                     newInputArray.splice(inputArrayIndex-1, 1);
                     newInputArray.push(divideNum);
                     inputArrayIndex++;
